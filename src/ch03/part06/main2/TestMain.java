@@ -28,6 +28,5 @@ public class TestMain {
         product1.printProductInfo();
         product2.printProductInfo();
         product3.printProductInfo();
-
     }
 }
