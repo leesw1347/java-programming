@@ -15,7 +15,7 @@ public class TestMethod {
 
         /**
          * ProductService 함수를 사용하기 위한 서비스 객체설정
-          */
+         */
         ProductService service = new ProductService();
 
         // 4) 데이터베이스 시스템에 자료 등록
