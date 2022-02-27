@@ -14,12 +14,14 @@ public class SingletonType {
     }
 
     /**
-     * @since 2022.02.27
-     * @summar
      * @return
+     * @summar
+     * @since 2022.02.27
      */
-    public static SingletonType getInstance(){
-
+    public static SingletonType getInstance() {
+        if (type == null) {
+            type = new SingletonType();
+        }
+        return type;
     }
-
 }
