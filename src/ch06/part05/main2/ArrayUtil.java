@@ -20,6 +20,13 @@ public class ArrayUtil {
      * @since 2022.02.26
      */
     public static int[] add(int[] array, int value) {
+        /**
+         * NullPointerException의 에러처리 - 기존 배열 그대로 반환
+         */
+        if (array == null) {
+            return array;
+        }
+
         int[] array2 = new int[array.length + 1];
         // array.length만큼 array2에 array 복사를 수행한다
         System.arraycopy(array, 0, array2, 0, array.length);
@@ -37,6 +44,18 @@ public class ArrayUtil {
      * @since 2022.02.26
      */
     public static int[] add(int[] array, int index, int value) {
+        /**
+         * NullPointerException의 에러처리 - 기존 배열 그대로를 반환
+         */
+        if (array == null) {
+            return array;
+        }
+
+        /**
+         * ArrayIndexOutOfBoundsException 에러처리 - 기존 배열 그대로 반환
+         */
+        if (index < 0 || index >= array.length) return array;
+
         int[] array2 = new int[array.length + 1];
         int row = 0; // 복사할 array의 인덱스
         for (int i = 0; i < array2.length; i++) {
@@ -50,6 +69,17 @@ public class ArrayUtil {
     }
 
     public static int[] remove(int[] array, int index) {
+
+        /**
+         * NullPointerException
+         */
+        if (array == null) return array;
+
+        /**
+         * ArrayIndexOutOfBoundsException 에러처리 - 기존 배열 그대로 반환
+         */
+        if (index < 0 || index >= array.length) return array;
+
         int[] array2 = new int[array.length - 1];
         int row = 0; // 복사할 array의 인덱스
         for (int i = 0; i < array.length; i++) {
