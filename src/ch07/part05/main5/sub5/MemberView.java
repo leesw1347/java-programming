@@ -2,6 +2,7 @@ package ch07.part05.main5.sub5;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.PrintStream;
 
 /**
  * 회원 정보 목록을 화면 구성 및 실행을 위한 클래스
@@ -30,7 +31,8 @@ public class MemberView extends JFrame {
         MemberVo[] members = {member1, member2, member3};
 
         /* 자료 목록 객체 */
-        TableGroup<MemberVo> tableGroup = new TableGroup<MemberVo>(members);
+        Class t = this.getClass();
+        TableGroup<MemberVo> tableGroup = new TableGroup<MemberVo>(t, members);
 
         /**
          * 화면에 추가하기

@@ -30,7 +30,7 @@ public class ProductView extends JFrame {
          * 모듈을 이용하여 테이블 정보 만들기
          */
         TableGroup<ProductVo> tableGroup =
-                new TableGroup<ProductVo>(product1, product2, product3);
+                new TableGroup<ProductVo>((Class)this.getClass(), product1, product2, product3);
 
         System.out.println(MessageFormat.format("tableGroup 정보는 {0}", tableGroup));
 
