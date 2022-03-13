@@ -6,8 +6,9 @@ import java.awt.*;
 public class ConfirmUtil {
     /**
      * @summary 예, 아니요를 선택팝업창을 띄우기 위한 함수 정의
-     * @param component
-     * @param confirm
+     * @param component 해당 팝업창을 호출하게 하는 화면 객체
+     *                    null일 경우, 윈도우 화면 중앙에 팝업창이 나타난다
+     * @param confirm: 예, 아니요 로직 구현 클래스
      */
     public static void confirmWindow(Component component, ConfirmWindowWork confirm) {
         /**
