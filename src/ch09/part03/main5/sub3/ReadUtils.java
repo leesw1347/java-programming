@@ -4,6 +4,11 @@ import java.awt.desktop.ScreenSleepEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * 클래스 모듈화
+ * [2] 유틸성 클래스 메소드를 이용한 모듈화
+ * 주로 특정 업무의 기능 처리를 위해 로직 내부에서 사용한다
+ */
 public abstract class ReadUtils implements IReadProcess {
 
     // read() 함수 정의 - 경로와 읽기 작업을 위한 인터페이스 파라미터 사용
