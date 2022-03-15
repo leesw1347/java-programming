@@ -10,7 +10,7 @@ public class ReadFileImpl extends AbstractReadFile {
     // 파일을 한줄씩 읽어 로직 처리하기 위한 process() 함수 재정의
     @Override
     public void process(String readLine) {
-        if(!readLine.trim().equals("")){
+        if (!readLine.trim().equals("")) {
             System.out.println(readLine);
         }
     }
