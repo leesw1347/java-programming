@@ -2,7 +2,9 @@ package ch10.part01.main3;
 
 public class TestMain {
     // read() 함수 정의
-    public void read() {
+    public void read() throws ClassNotFoundException,
+            InstantiationException,
+            IllegalAccessException {
         try { // try 블록 - 업무로직 처리 구간
             // 리플렉션을 이용한 Class 타입 객체 생성
             // Class 타입을 이용하여, 객체 생성, 접근 및 설정, 함수 호출 등의 일을 할 수 있다
@@ -21,25 +23,30 @@ public class TestMain {
             System.out.println(forName);
             System.out.println(vo);
 
-        } catch (ClassNotFoundException e) {
-            // 메모리에 문자열로 된 클래스 정보가 없을 경우,  ClassNotFoundException 에러가 발생한다
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            // 메모리에 문자열로 된 클래스 정보가 없을 경우,  ClassNotFoundException 에러가 발생한다
+//            e.printStackTrace();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
         } finally {
             System.out.println("마무리 구간 [로직생략가능]");
         }
     }
 
-    // try 블록 - 업무처리 로직 구간
-    //  리플렉션을 이용한 Class 타입 객체 생성
-    //  리플렉션을 이용한 객체 생성
-
-    // 메인함수 정의 - 객체생성 및 read() 함수 호출
     public static void main(String[] args) {
-        TestMain main = new TestMain();
-        main.read();
+        try {
+            TestMain main = new TestMain();
+            main.read();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (InstantiationException ex) {
+            ex.printStackTrace();
+        } catch (IllegalAccessException ex) {
+            ex.printStackTrace();
+        } finally {
+            System.out.println("마무리 구간 [로직생략가능]");
+        }
     }
 }
