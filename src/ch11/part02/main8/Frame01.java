@@ -14,17 +14,17 @@ public class Frame01 extends JFrame {
     public Frame01() throws HeadlessException {
         this.setTitle("화면A");
         this.setLayout(null); // 배치를 수동(위치와 크기)으로 입력
-        this.setSize(new Dimension(300,200)); // 화면 크기 설정
+        this.setSize(new Dimension(300, 200)); // 화면 크기 설정
 
         // 절차3. 텍스트필드 객체생성 및 설정
         // 익명 클래스 내 함수로 자료전달을 위해 [final] 키워드 사용
         final JTextField textField = new JTextField(); // 객체생성
-        textField.setBounds(new Rectangle(10,10,100,30)); // 생성위치, 크기 설정
+        textField.setBounds(new Rectangle(10, 10, 100, 30)); // 생성위치, 크기 설정
         this.add(textField); // 화면추가
 
         // 절차4. 버튼 객체생성 및 설정
         JButton btn = new JButton("저장"); // 객체생성
-        btn.setBounds(new Rectangle(120,10,100,30));
+        btn.setBounds(new Rectangle(120, 10, 100, 30));
         this.add(btn); // 화면추가
 
         // 절차5. 버튼클릭 이벤트 생성(익명클래스 이용)
