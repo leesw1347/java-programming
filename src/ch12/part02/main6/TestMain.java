@@ -25,7 +25,7 @@ public class TestMain {
 
         System.out.println(MessageFormat.format("[2] : {0}", list));
         // 자료값 Integer 타입객체 삭제
-        list.remove(new Integer(2));
+//        list.remove(new Integer(2));
         System.out.println(MessageFormat.format("[3] : {0}", list));
     }
 }
