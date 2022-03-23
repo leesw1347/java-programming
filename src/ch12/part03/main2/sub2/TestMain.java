@@ -1,4 +1,4 @@
-package ch12.part03.main2;
+package ch12.part03.main2.sub2;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
