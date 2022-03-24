@@ -23,5 +23,20 @@ public class TestMain {
         System.out.println("[list2]자료복사(Shallow Copy)");
         System.out.println(MessageFormat.format("\t[list2] {0}", list2));
         System.out.println("\t list1 == list2 : " + (list1 == list2));
+        System.out.println(MessageFormat.format("메모리 주소 {0}\t{1}", list1, list2));
+        System.out.println();
+
+        // 객체복사 [Deep Copy] list3
+        ArrayList list3 = (ArrayList) list1.clone();
+        System.out.println("[list3]자료복사(DeepCopy)");
+        System.out.println(MessageFormat.format("\t[list3] {0}", list3));
+        System.out.println();
+
+        // 자료추가 시 Shallow Copy 와 Deep Copy
+        list1.add("e");
+        System.out.println("[list1 'e'] 자료추가");
+        System.out.println(MessageFormat.format("\t[list1] {0}", list1));
+        System.out.println(MessageFormat.format("\t[list2] {0}", list2));
+        System.out.println(MessageFormat.format("\t[list3] {0}", list3));
     }
 }
