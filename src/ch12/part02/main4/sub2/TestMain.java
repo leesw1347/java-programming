@@ -23,7 +23,6 @@ public class TestMain {
         Collections.sort(list1);
         System.out.println(MessageFormat.format("\t정렬 후\t{0}", list1));
 
-
         // 문자열 자료구조 생성
         System.out.println("[list2] 정렬");
         List<String> list2 = new ArrayList<>();
