@@ -17,6 +17,8 @@ public class TestMain {
         System.out.println();
 
         // 2. 일괄자료등록
+        // putAll(Map<? extends Key, ? extends V> map)
+        // 중복되는 key 값이 있다면, 마지막에 등록된 값으로 변경된다
         System.out.println(" 자료일괄등록 - map1.putAll(map2)");
         Map<String, String> map2 = new HashMap<>();
         map2.put("1", "e");
