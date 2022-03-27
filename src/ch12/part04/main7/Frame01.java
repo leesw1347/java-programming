@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Frame01 extends JFrame {
     // 지역변수를 전역변수로 분리
@@ -41,7 +42,7 @@ public class Frame01 extends JFrame {
                 System.out.println(param.getInfo("[Frame01 이벤트 조회결과]"));
 
                 // 3. 검색결과를 화면에 반영
-                /*
+
                 List<ProductVo> list = param.get("resultList", List.class);
                 String msg = "";
                 if (list != null) {
@@ -50,7 +51,6 @@ public class Frame01 extends JFrame {
                     }
                 }
                 textArea.setText(msg);
-                 */
             }
         });
     }
