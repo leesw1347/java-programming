@@ -1,4 +1,4 @@
-package ch12.part05;
+package ch12.part05.sub1;
 
 import java.util.Properties;
 import java.util.Set;
