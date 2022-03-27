@@ -5,6 +5,7 @@ import java.util.Set;
 
 /**
  * 함수의 파라미터 타입을 공통으로 사용하기 위해 ParameterMap 클래스 정의
+ * HashMap<String, Object>를 상속 받으므로 해당 타입의 기능을 모두 상속 받았다.
  */
 public class ParameterMap extends HashMap<String, Object> {
     // 해당 Key를 입력 시 String 타입의 결과값을 반환
