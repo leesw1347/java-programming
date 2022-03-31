@@ -26,7 +26,6 @@ public class TestMain {
         t1.join();
         t2.join();
         t3.join();
-
     }
 
     // MyThread 타입 정의
