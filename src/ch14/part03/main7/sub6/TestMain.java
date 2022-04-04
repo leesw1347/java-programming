@@ -22,79 +22,110 @@ public class TestMain {
         return sum;
     }
 
+//    public static void main(String[] args) {
+//        // Supplier() 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future1
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(1, 2, "supplyAsync1()");
+//            }
+//        });
+//
+//        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future2
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(3, 6, "supplyAsync2()");
+//            }
+//        });
+//
+//        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future3
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(7, 11, "supplyAsync3()");
+//            }
+//        });
+//
+//        // allOf() 함수의 사용, 비동기 함수 통합 실행
+//        CompletableFuture<Void> allOf = CompletableFuture.allOf(
+//                future1, future2, future3
+//        );
+//
+//        // allOf의 결과 값이 나타날 때까지 메인 쓰레드를 대기 시킨다
+//        Void join = allOf.join();
+//        System.out.println("allOf 결과 값 = " + join);
+//        System.out.println();
+//
+//        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future4
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(1, 5, "supplyAsync4()");
+//            }
+//        });
+//
+//        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future5
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(3, 6, "supplyAsync5()");
+//            }
+//        });
+//
+//        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
+//        CompletableFuture<Integer> future6
+//                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
+//            @Override
+//            public Integer get() {
+//                return print(7, 11, "supplyAsync6()");
+//            }
+//        });
+//
+//        // allOf() 함수를 주석 처리 후
+//        // anyOf() 함수의 사용 - 비동기 함수 통합실행 및 비동기 최초 종료 시 종료
+//        CompletableFuture<Object> anyOf = CompletableFuture.anyOf(
+//                future4, future5, future6
+//        );
+//
+//        // anyOf의 결과 값이 나타날 때까지 메인쓰레드를 대기시킨다
+//        Object join2 = anyOf.join();
+//        System.out.println("anyOf 결과 값 = " + join2);
+//    }
+
     public static void main(String[] args) {
-        // Supplier() 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future1
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(1, 2, "supplyAsync1()");
-            }
-        });
+        /**
+         * allOf() 함수의 사용 - 비동기 함수 통합실행
+         */
+        CompletableFuture.allOf(
+                CompletableFuture.supplyAsync(() -> {
+                    return print(1, 2, "supplyAsync1()");
+                }),
+                CompletableFuture.supplyAsync(() -> {
+                    return print(3, 6, "supplyAsync2");
+                }),
+                CompletableFuture.supplyAsync(() -> {
+                    return print(7, 11, "3");
+                })
+        ).join();
 
-        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future2
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(3, 6, "supplyAsync2()");
-            }
-        });
-
-        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future3
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(7, 11, "supplyAsync3()");
-            }
-        });
-
-        // allOf() 함수의 사용, 비동기 함수 통합 실행
-        CompletableFuture<Void> allOf = CompletableFuture.allOf(
-                future1, future2, future3
-        );
-
-        // allOf의 결과 값이 나타날 때까지 메인 쓰레드를 대기 시킨다
-        Void join = allOf.join();
-        System.out.println("allOf 결과 값 = " + join);
-        System.out.println();
-
-        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future4
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(1, 5, "supplyAsync4()");
-            }
-        });
-
-        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future5
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(3, 6, "supplyAsync5()");
-            }
-        });
-
-        // Supplier 구현 객체를 이용하여 supplyAsync() 함수 실행
-        CompletableFuture<Integer> future6
-                = CompletableFuture.supplyAsync(new Supplier<Integer>() {
-            @Override
-            public Integer get() {
-                return print(7, 11, "supplyAsync6()");
-            }
-        });
-
-        // allOf() 함수를 주석 처리 후
-        // anyOf() 함수의 사용 - 비동기 함수 통합실행 및 비동기 최초 종료 시 종료
-        CompletableFuture<Object> anyOf = CompletableFuture.anyOf(
-                future4, future5, future6
-        );
-
-        // anyOf의 결과 값이 나타날 때까지 메인쓰레드를 대기시킨다
-        Object join2 = anyOf.join();
-        System.out.println("anyOf 결과 값 = " + join2);
+        // anyOf 함수의 사용 - 비동기 함수 통합실행
+        Object join = CompletableFuture.anyOf(
+                CompletableFuture.supplyAsync(() -> {
+                    return print(1, 2, "supplyAsync4()");
+                }),
+                CompletableFuture.supplyAsync(() -> {
+                    return print(3, 6, "supplyAsync5");
+                }),
+                CompletableFuture.supplyAsync(() -> {
+                    return print(7, 11, "6");
+                })
+        ).join();
+        System.out.println("anyOf 결과 값 = " + join);
     }
 }
