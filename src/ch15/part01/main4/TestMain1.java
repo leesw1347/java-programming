@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestMain {
+public class TestMain1 {
     public static void main(String[] args) {
 
         // 삭제할 폴더의 File 타입 객체생성
