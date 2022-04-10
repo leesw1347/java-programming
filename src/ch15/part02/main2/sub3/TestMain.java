@@ -17,7 +17,10 @@ public class TestMain {
              * - 경로 내의 폴더가 없을 경우 FileNotFoundException 에러 발생
              * - fos.txt 파일이 없어도 자동으로 생성함
              */
-            fos = new FileOutputStream(path);
+//            fos = new FileOutputStream(path);
+
+            // append 기능을 쓰기 위해서 FileOutputStream 클래스에서 아래와 같이 설정할 수 있다
+            fos = new FileOutputStream(path, true);
 
             /* 쓰기방법1. byte로 직접쓰기 */
             fos.write((int) 't');
