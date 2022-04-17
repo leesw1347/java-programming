@@ -8,7 +8,7 @@ public class ProductVo implements Serializable { // 직렬화
     private int price;
 
     public ProductVo() {
-
+//        System.out.println(super.hashCode());
     }
 
     public ProductVo(String productNo, String productName, int price) {
