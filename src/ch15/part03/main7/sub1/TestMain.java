@@ -1,4 +1,4 @@
-package ch15.part03.main7;
+package ch15.part03.main7.sub1;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
