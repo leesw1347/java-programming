@@ -3,7 +3,6 @@ package ch15.part03.main7.sub1;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.nio.charset.StandardCharsets;
 
 public class TestMain {
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class TestMain {
             System.out.println("oos =" + oos);
 
             // 기존의 방식으로 저장
-            oos.write("한글".getBytes(StandardCharsets.UTF_8));
+            oos.write("한글".getBytes("EUC-KR"));
 
             // 기본형 타입으로 자료 저장
             oos.writeByte(1);
