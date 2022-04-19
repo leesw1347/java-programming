@@ -49,7 +49,6 @@ public class TestMain {
                         if (read != -1) {
                             System.out.println(new String(ch, 0, read));
                         }
-
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
