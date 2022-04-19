@@ -4,7 +4,7 @@ import java.io.CharArrayReader;
 import java.io.CharArrayWriter;
 import java.io.IOException;
 
-public class TestMain {
+public class TestMain1 {
     public static void main(String[] args) {
         // CharArrayWriter caos 객체생성
         CharArrayWriter caos = new CharArrayWriter();
