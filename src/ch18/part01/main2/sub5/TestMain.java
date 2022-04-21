@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class TestMain {
@@ -40,6 +41,25 @@ public class TestMain {
             }
         });
 
+        /**
+         * String으로 변환한 자료를 콘솔화면에 나타내기
+         */
+        future2.thenAccept(new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                System.out.println(s);
+            }
+        });
 
+        future2.join();
+
+        /**
+         * 람다와 스트림을 학습한 이후에 위의 HttpClient 객체 생성 및 기본 설정 부분을 아래와 같이
+         * 간단하게 설정할 수 있다
+         */
+        HttpClient client = HttpClient.newHttpClient();
+        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .thenAccept(System.out::println).join();
     }
 }
