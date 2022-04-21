@@ -59,7 +59,7 @@ public class TcpServer {
                         while (true) {
                             // 클라이언트가 송신한 자료를 수신한다
                             String readLine = br.readLine();
-                            if (readLine == null || readLine == "") {
+                            if (readLine == null || readLine.equals("")) {
                                 break;
                             }
                             print("서버화면", readLine);
