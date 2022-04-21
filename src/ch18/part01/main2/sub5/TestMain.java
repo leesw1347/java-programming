@@ -8,6 +8,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+
+/**
+ * 1. 자료 요청을 위한 객체 생성 및 기본 설정
+ * 2. 자료 전송을 위한 객체 생성
+ * 응답 자료 처리 객체 생성 - 자료를 UTF-8로 인코딩하여 처리하여 String 타입으로 수신
+ * 자료 전송 및 HttpResponse 객체 반환
+ * thenApply(): HttpResponse의 body() 자료를 String으로 변환
+ * thenAccept() : String 자료를 콘솔 화면에 출력
+ * join() : 비동기 작업이 종료될 때까지 메인 쓰레드 대기
+ */
 public class TestMain {
     public static void main(String[] args) {
         // HttpClient, HttpRequest, HttpResponse 클래스를 이용하여 처리하기
