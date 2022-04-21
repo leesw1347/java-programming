@@ -42,6 +42,8 @@ public class TestMain {
 
         /**
          * HttpResponse 결과자료를 받아와 body() 부분을 String으로 변환
+         * 비동기 작업 종료 이후 해당 결과를 이용하여 후처리를 하기 위한 함수이며, 새로운
+         * CompletableFuture 객체를 생성하여 반환한다
          */
         CompletableFuture<String> future2
                 = future.thenApply(new Function<HttpResponse<String>, String>() {
@@ -53,6 +55,8 @@ public class TestMain {
 
         /**
          * String으로 변환한 자료를 콘솔화면에 나타내기
+         * thenApply()와 같은 작업을 하지만, 결과 자료를 반환하지 않아서
+         * 더이상의 후처리가 불가능하다
          */
         future2.thenAccept(new Consumer<String>() {
             @Override
@@ -61,15 +65,18 @@ public class TestMain {
             }
         });
 
+        /**
+         * 비동기 작업이 종료될 때까지 메인 쓰레드를 대기 시킨다
+         */
         future2.join();
 
         /**
          * 람다와 스트림을 학습한 이후에 위의 HttpClient 객체 생성 및 기본 설정 부분을 아래와 같이
          * 간단하게 설정할 수 있다
+            HttpClient client = HttpClient.newHttpClient();
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(HttpResponse::body)
+                    .thenAccept(System.out::println).join();
          */
-        HttpClient client = HttpClient.newHttpClient();
-        client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .thenAccept(System.out::println).join();
     }
 }
