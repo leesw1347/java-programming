@@ -76,6 +76,8 @@ public class TcpServer {
                 public void run() {
                     /**
                      * OutputStream -> OutputStreamWriter -> BufferedWriter 객체생성
+                     * Buffered된 일정 바이트가 쌓일 때까지 보내지 않고, 버퍼에 다 담아두고, 수신하는 곳에 자료가 전달되지 않기 때문에
+                     * flush() 함수를 이용해서 강제로 전송하라는 명령을 내려서 수신하는 곳으로 자료를 전달할 수 있다.
                      */
                     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
 
