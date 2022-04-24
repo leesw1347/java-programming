@@ -1,5 +1,7 @@
 package ch18.part02.main3.sub2;
 
+import ch18.part02.main3.sub2.util.Printable;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -41,6 +43,7 @@ public class TcpServer {
                 // 송신 쓰레드 객체생성
                 Thread sendThread = new ThreadSend(accept, "server"); // 쓰레드분리
                 sendThreadMap.put(accept, sendThread); // 해당 쓰레드 저장
+                Printable.print("sendThreadMap", sendThreadMap);
                 sendThread.start();
 
                 /*

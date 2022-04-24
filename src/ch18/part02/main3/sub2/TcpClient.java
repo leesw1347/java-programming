@@ -30,6 +30,8 @@ public class TcpClient {
 
             // 쓰기 작업 쓰레드
             st = new ThreadSend(socket, name);
+            System.out.println(socket);
+            System.out.print("소켓연결완료 ? " + socket.isConnected());
 
             // 읽기 작업 쓰레드
             ThreadReceive rt = new ThreadReceive(socket, name, clientUser);
