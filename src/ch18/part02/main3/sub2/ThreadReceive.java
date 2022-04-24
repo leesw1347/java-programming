@@ -25,7 +25,7 @@ public class ThreadReceive extends Thread {
     public ThreadReceive(Socket socket, String owner, IClientUser clientUser) {
         this.socket = socket;
         this.owner = owner;
-        this.sendThreadMap = (Map<Socket, Thread>) clientUser;
+        this.clientUser = clientUser;
     }
 
     /**
