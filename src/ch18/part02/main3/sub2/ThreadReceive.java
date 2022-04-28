@@ -36,13 +36,12 @@ public class ThreadReceive extends Thread {
 //        super.run();
         BufferedReader br = null;
         try {
-            br = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream(), "EUC-KR")
-            );
-
-            System.out.println("서버 대기중");
-
             while (true) {
+                br = new BufferedReader(
+                        new InputStreamReader(this.socket.getInputStream(), "EUC-KR")
+                );
+                System.out.println("서버 대기중");
+                
                 String readLine = br.readLine();
                 if (readLine == null) {
                     break;

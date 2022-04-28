@@ -26,7 +26,15 @@ public class TcpClient {
     public void connect() {
         // 클라이언트 소켓 생성
         try {
-            socket = new Socket("localhost", 12225);
+            while (true) {
+                socket = new Socket("localhost", 12225);
+                if (!socket.isConnected()) {
+                    Thread.sleep(2000);
+                    continue;
+                } else {
+                    break;
+                }
+            }
 
             // 쓰기 작업 쓰레드
             st = new ThreadSend(socket, name);
@@ -37,6 +45,8 @@ public class TcpClient {
             ThreadReceive rt = new ThreadReceive(socket, name, clientUser);
             rt.start();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
