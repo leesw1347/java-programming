@@ -24,7 +24,12 @@ public class UdpClient extends AbstractClientSocket {
             DatagramPacket datagramPacket = new DatagramPacket(msg.getBytes(), msg.getBytes().length, InetAddress.getByName("localhost"), 12345);
             System.out.println(datagramPacket + " : " + socket);
 
+            // 외부(서버)로 자료전송
+            socket.send(datagramPacket);
+
         } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -48,7 +53,7 @@ public class UdpClient extends AbstractClientSocket {
                     DatagramPacket datagramPacket = new DatagramPacket(by, by.length);
                     while (true) {
                         try {
-                            System.out.println("data = ");
+                            System.out.println("data = " + datagramPacket);
                             // 소켓으로 들어오는 자료수신하며 수신할 때까지 대기
                             socket.receive(datagramPacket);
 
@@ -74,6 +79,8 @@ public class UdpClient extends AbstractClientSocket {
 
     @Override
     public void close() {
-
+        if (socket.isConnected()) {
+            socket.close();
+        }
     }
 }
