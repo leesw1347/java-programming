@@ -51,7 +51,7 @@ public class UdpServer {
                             System.out.println(MessageFormat.format("수신한 데이터의 길이 {0}", by.length));
 
                             // 외부로 전송할 자료구성
-                            String data = new String(dp.getData(), 0, dp.getLength(), StandardCharsets.UTF_8);
+                            String data = new String(dp.getData(), 0, dp.getLength());
                             Date date = new Date(System.currentTimeMillis());
                             String msg = MessageFormat.format("{0}\t{1}", data, date);
 
