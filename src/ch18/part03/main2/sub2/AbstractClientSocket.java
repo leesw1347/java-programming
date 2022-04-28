@@ -1,6 +1,8 @@
 package ch18.part03.main2.sub2;
 
 
+import ch18.part02.main3.sub2.IClientUser;
+
 /**
  * 추상 메소드의 예외 처리는 처음부터 정의하지 않았으며,
  * TcpClient에서 구현하면서 예외 처리를 필요로 하며
@@ -17,4 +19,7 @@ public abstract class AbstractClientSocket {
     }
 
     // 추상메소드 정의
+    public abstract void sendMessage(String msg);
+    public abstract void connect();
+    public abstract void close();
 }

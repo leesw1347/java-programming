@@ -15,9 +15,6 @@ public class ThreadReceive extends Thread {
     private Map<Socket, Thread> sendThreadMap;
     private IClientUser clientUser;
 
-    public ThreadReceive(Socket accept, String server, Map<Socket, Thread> sendThreadMap) {
-    }
-
     /**
      * 클라이언트가 읽기작업을 위해 사용하는 생성자함수
      * clientUser: 통신을 위해 들어오는 자료를 화면 UI에 쓰기작업하기 위한 객체
@@ -26,6 +23,14 @@ public class ThreadReceive extends Thread {
         this.socket = socket;
         this.owner = owner;
         this.clientUser = clientUser;
+        this.sendThreadMap = null;
+    }
+
+    public ThreadReceive(Socket accept, String server, Map<Socket, Thread> sendThreadMap) {
+        this.socket = accept;
+        this.owner = server;
+        this.sendThreadMap = sendThreadMap;
+        this.clientUser = null;
     }
 
     /**
@@ -41,7 +46,7 @@ public class ThreadReceive extends Thread {
                         new InputStreamReader(this.socket.getInputStream(), "EUC-KR")
                 );
                 System.out.println("서버 대기중");
-                
+
                 String readLine = br.readLine();
                 if (readLine == null) {
                     break;
