@@ -13,6 +13,9 @@ public class TestMain {
         // Math 타입 객체생성 - 리턴문만 있는 경우 리턴문 생략 가능
         Math divide = (int x, int y) -> x / y;
 
+        System.out.println("add 타입 사용 " + add.operation(10, 30));
+        System.out.println("subtract 타입 사용 " + substract.operation(30,150));
+
         // Echo 타입 객체생성 - 파라미터가 하나인 경우
         Echo msg1 = (msg) -> {
             System.out.println("Hello " + msg);
